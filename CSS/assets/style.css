@@ -1,0 +1,37 @@
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: lightcyan;
+}
+.body {
+    width: 100%;
+    max-width: 1000px;
+}
+hr {
+    margin: auto;
+    background-color: white;
+    border-style: none;
+    border-top-style: dotted;
+    opacity: 0.5;
+    height: 0px;
+    width: 7%;
+    border-width: 5px;
+    border-color: darkgrey;
+    background-color: lightcyan;
+}
+h1 {
+    color: #3C6255;
+}
+h3 {
+    color: #3C6255;
+}
+ul li::before {
+    content: "\2022";
+    color: #3C6255;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+  }
