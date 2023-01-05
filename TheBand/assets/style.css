@@ -1,0 +1,77 @@
+/* Reset CSS */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+.header {
+    background-color: black;
+    box-shadow: 0 0 5px black;
+    height: 46px;
+}
+
+/* nav bar */
+.nav li {
+    display: inline-block;
+}
+
+.nav > li > a {
+    color: white;
+    
+}
+
+.nav li a{
+    display: inline-block;
+    line-height: 46px;
+    padding: 0 24px;
+    text-decoration: none;
+}
+
+.nav > li:hover > a {
+    background-color: #ccc;
+    color: black;
+}
+
+/* nav bar submore */
+
+.more {
+    position: relative;
+}
+
+.sub-more {
+    display: none;
+    position: absolute;
+    top: 46px;
+    background-color: white;
+    color: black;
+}
+
+.sub-more li {
+    display: block;
+    width: 150px;
+}
+
+.sub-more li a {
+    width: 100%;
+    color: black;
+}
+
+.sub-more li:hover a {
+    background-color: #ccc;
+}
+
+li:has(.more):hover .sub-more {
+    display: block;
+}
+
+
+/* slider */
+.slider {
+    background-color: grey;
+    height: 500px;
+}
