@@ -11,22 +11,21 @@ html {
 
 .header {
     background-color: black;
-    box-shadow: 0 0 5px black;
     height: 46px;
 }
 
-/* nav bar */
+.nav {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
 .nav li {
     display: inline-block;
+    position: relative;
 }
 
-.nav > li > a {
+.nav li a {
     color: white;
-    
-}
-
-.nav li a{
-    display: inline-block;
+    display: block;
     line-height: 46px;
     padding: 0 24px;
     text-decoration: none;
@@ -37,41 +36,58 @@ html {
     color: black;
 }
 
-/* nav bar submore */
+.ti-angle-down {
+    font-size: 8px;
+}
 
-.more {
+.ti-search {
+    color: white;
+    position: absolute;
+    right: 0;
+    padding: 15px 15px;
+}
+
+.ti-search:hover {
+    background-color: orangered;
+    cursor: pointer;
+}
+
+/* sub more */
+
+.nav li {
     position: relative;
 }
 
 .sub-more {
+    background-color: white;
     display: none;
     position: absolute;
-    top: 46px;
-    background-color: white;
-    color: black;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+li:hover > .sub-more {
+    display: block;
 }
 
 .sub-more li {
     display: block;
-    width: 150px;
+    min-width: 160px;
 }
 
 .sub-more li a {
-    width: 100%;
     color: black;
+    line-height: 40px;
+    padding: 0 16px;
 }
 
-.sub-more li:hover a {
+.sub-more > li:hover > a {
     background-color: #ccc;
 }
 
-li:has(.more):hover .sub-more {
-    display: block;
-}
-
-
 /* slider */
 .slider {
-    background-color: grey;
+    background-color: white;
     height: 500px;
 }
