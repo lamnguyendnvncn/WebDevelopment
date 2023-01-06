@@ -17,13 +17,15 @@ html {
 }
 
 .nav {
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
     display: inline-block;
 }
 
 .nav li {
     display: inline-block;
-    position: relative;
+}
+
+.nav > li > a {
+    text-transform: uppercase;
 }
 
 .nav li a {
@@ -39,24 +41,13 @@ html {
     color: black;
 }
 
-.nav-arrow-down {
-    font-size: 8px;
-    font-weight: 900;
-}
-
-/* sub more */
-
-.nav li {
-    position: relative;
-}
+/* submore */
 
 .sub-more {
     background-color: white;
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
 li:hover > .sub-more {
@@ -78,29 +69,32 @@ li:hover > .sub-more {
     background-color: #ccc;
 }
 
-/* search button */
+/* search button and icon */
+
+.nav-arrow-down {
+    font-size: 10px;
+    font-weight: bolder;
+}
 
 .search-btn {
     float: right;
 }
 
-.ti-search {
+.search-btn .ti-search {
     color: white;
+    display: block;
     font-size: 20px;
-    line-height: 46px !important;
-    position: absolute;
-    right: 0;
-    top: 0;
+    line-height: 46px;
     padding: 0 20px;
 }
 
-.ti-search:hover {
-    background-color: orangered;
+.search-btn:hover .ti-search {
     cursor: pointer;
+    background-color: orangered;
 }
 
-/* slider */
+
 .slider {
-    background-color: white;
-    height: 500px;
+    background-color: grey;
+    height: 1000px;
 }
