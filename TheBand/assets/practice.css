@@ -10,13 +10,12 @@ html {
 }
 
 .header {
-    background-color: black;
     height: 46px;
+    background-color: black;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    width: 100%;
     z-index: 1;
 }
 
@@ -32,7 +31,7 @@ html {
     text-transform: uppercase;
 }
 
-.nav li a {
+.nav li a{
     color: white;
     display: block;
     line-height: 46px;
@@ -45,17 +44,14 @@ html {
     color: black;
 }
 
-/* submore */
+/* sub more */
 
 .sub-more {
     background-color: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
     display: none;
     position: absolute;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-}
-
-li:hover > .sub-more {
-    display: block;
+    top: 46px;
 }
 
 .sub-more li {
@@ -65,36 +61,34 @@ li:hover > .sub-more {
 
 .sub-more li a {
     color: black;
-    line-height: 40px;
     padding: 0 16px;
+    line-height: 40px;
 }
 
 .sub-more > li:hover > a {
     background-color: #ccc;
 }
 
-/* search button and icon */
-
-.nav-arrow-down {
-    font-size: 10px;
-    font-weight: bolder;
+li:hover > .sub-more {
+    display: block;
 }
+
+/* search btn */
 
 .search-btn {
     float: right;
 }
 
-.search-btn .ti-search {
+.ti-search {
     color: white;
     display: block;
-    font-size: 20px;
-    line-height: 46px;
+    line-height: 46px !important;
     padding: 0 20px;
 }
 
 .search-btn:hover .ti-search {
-    cursor: pointer;
     background-color: orangered;
+    cursor: pointer;
 }
 
 /* slider */
@@ -102,32 +96,76 @@ li:hover > .sub-more {
 .slider {
     position: relative;
     padding-top: 50%;
+    margin-top: 46px;
     background: url('./img/chicago.jpg') top center / cover no-repeat;
-    margin-top: 46px; /*so that header will not cover part of the slider*/
 }
 
 .slider-content {
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translateX(-50%);
     color: white;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.slider-city {
-    font-size: 24px;
-    font-weight: 150;
-    margin: 10px 0;
+    position: absolute;
+    bottom: 45px;
+    width: 100%;
     text-align: center;
 }
 
 .slider-sentence {
-    font-weight: 500;
-    font-size: 15px;
     margin: 15px 0;
 }
 
-.content {
-    height: 1000px;
+/* content*/
+    /* about */
+
+.content .content-section {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 64px 0px;
 }
+
+.section-heading, .section-sub-heading {
+    text-align: center;
+}
+
+.section-heading {
+    font-weight: 400;
+    font-size: 30px;
+    letter-spacing: 4px;
+    margin: 10px 0;
+}
+
+.section-sub-heading {
+    font-size: 15px;
+    margin: 15px 0;
+    opacity: 0.7;
+}
+
+.about .about-section {
+    text-align: justify ;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 140%;
+    margin: 15px 0;
+}
+        /* member pictures */
+
+.member {
+    padding: 32px 0;
+}
+
+.member .member-single{
+    display: inline-block;
+    width: 32.9%;
+}
+
+.member .member-name {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.member .member-img {
+    width: 154px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
