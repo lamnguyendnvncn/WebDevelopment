@@ -13,7 +13,11 @@ html {
     background-color: black;
     height: 46px;
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
+    z-index: 1;
 }
 
 .nav {
@@ -93,8 +97,37 @@ li:hover > .sub-more {
     background-color: orangered;
 }
 
+/* slider */
 
 .slider {
-    background-color: grey;
+    position: relative;
+    padding-top: 50%;
+    background: url('./img/chicago.jpg') top center / cover no-repeat;
+    margin-top: 46px; /*so that header will not cover part of the slider*/
+}
+
+.slider-content {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.slider-city {
+    font-size: 24px;
+    font-weight: 150;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.slider-sentence {
+    font-weight: 500;
+    font-size: 15px;
+    margin: 15px 0;
+}
+
+.content {
     height: 1000px;
 }
