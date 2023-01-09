@@ -167,6 +167,9 @@ li:hover > .sub-more {
 
 .about .band-member {
     padding: 32px 0;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .band-member .each-member {
@@ -193,9 +196,10 @@ li:hover > .sub-more {
 
 .black-bg {
     background-color: black;
-    width: 100vw!important;
     color: white;
 }
+
+
 
 .content {
     height: 1000px;
