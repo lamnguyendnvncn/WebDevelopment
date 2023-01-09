@@ -100,85 +100,101 @@ li:hover > .sub-more {
 /* slider */
 
 .slider {
+    margin-top: 46px;
     position: relative;
-    padding-top: 50%;
-    background: url('./img/chicago.jpg') top center / cover no-repeat;
-    margin-top: 46px; /*so that header will not cover part of the slider*/
 }
 
-.slider-content {
+.slider-img {
+    max-width: 100% !important;
+    width: 100%;
+}
+
+.slider .slider-content {
+    color: white;
     position: absolute;
     top: 70%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.slider-city {
-    font-size: 24px;
-    font-weight: 150;
-    margin: 10px 0;
+    left: 0;
+    right: 0;
     text-align: center;
 }
 
-.slider-sentence {
-    font-weight: 500;
+.slider-content h3 {
+    font-size: 24px;
+    font-weight: 150;
+    margin: 10px 0;
+}
+
+.slider-content p {
     font-size: 15px;
+    font-weight: 600;
     margin: 15px 0;
 }
 
 /* About */
 
-.content .content-section {
-    padding: 64px 0;
-    max-width: 800px;
-    margin-left: auto;
+.about .about-content {
+    width: 800px !important;
+    text-align: justify;
     margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
 }
 
-.content-section .section-heading {
+.content .content-section {
+    padding: 64px 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.content-section .content-heading {
+    text-align: center;
     font-size: 30px;
     font-weight: 200;
-    text-align: center;
     letter-spacing: 4px;
     margin: 10px 0;
 }
 
-.content-section .section-sub-heading {
+.content-section .sub-heading {
     text-align: center;
-    font-size: 15px;
+    font-style: italic;
     opacity: 0.7;
     margin: 15px 0;
 }
 
-.about .about-section {
-    text-align: justify;
-    font-size: 15px;
-    line-height: 1.4;
-    margin: 15px 0;
-}
 
-/* member */
 
-.member-single {
-    display: inline-block;
-    width: 32.9%;
+/* Band member */
+
+.about .band-member {
     padding: 32px 0;
 }
 
-.member .member-name {
-    text-align: center;
-    font-size: 15px;
-    margin: 15px 0;
+.band-member .each-member {
+    display: inline-block;
+    width: 32.9%;
 }
 
-.member-single .member-img {
-    display: block;
+.each-member .member-img {
     width: 154px;
-    margin-left: auto;
+    border-radius: 4px;
+    display: block;
     margin-right: auto;
-    border-radius: 3%;
+    margin-left: auto;
+    margin-bottom: 16px;
+}
+
+.each-member .member-name {
+    font-size: 15px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+/* Tour */
+
+.black-bg {
+    background-color: black;
+    width: 100vw!important;
+    color: white;
 }
 
 .content {
