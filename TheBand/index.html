@@ -7,6 +7,7 @@
     <title>The Band</title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/themify-icons-font/themify-icons/themify-icons.css">
+    <script src="https://kit.fontawesome.com/faf8bdc568.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="main">
@@ -59,11 +60,55 @@
                     </div>
                 </div>
             </div>
-            <div class="content-section">
-                <div class="ticket">
-                    <h2 class="section-heading">TOUR DATES</h2>
-                    <p class="section-sub-heading"><em>Remember to book your tickets!</em></p>
-
+            <div class="black-bg">
+                <div class="content-section">
+                    <div class="ticket">
+                        <h2 class="section-heading">TOUR DATES</h2>
+                        <p class="section-sub-heading"><em>Remember to book your tickets!</em></p>
+                        <ul class="ticket-month">
+                            <li class="month-ticket">
+                                <span class="month">September</span>
+                                <span class="ticket-out">Sold out</span>
+                            </li>
+                            <li class="month-ticket">
+                                <span class="month">October</span>
+                                <span class="ticket-out">Sold out</span>
+                            </li>
+                            <li class="month-ticket">
+                                <span class="month">November</span>
+                                <span class="ticket-number">3</span>
+                            </li>
+                        </ul>
+                        <div class="tickets">
+                            <div class="ticket-available">
+                                <img src="./assets/img/newyork.jpg" alt="" class="ticket-img">
+                                <div class="ticket-info">
+                                    <div class="ticket-city">New York</div>
+                                    <div class="ticket-time">Fri 27 Nov 2016</div>
+                                    <div class="ticket-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                                    <a href="#" class="buy-btn">Buy Tickets</a>
+                                </div>
+                            </div>
+                            <div class="ticket-available">
+                                <img src="./assets/img/newyork.jpg" alt="" class="ticket-img">
+                                <div class="ticket-info">
+                                    <div class="ticket-city">New York</div>
+                                    <div class="ticket-time">Fri 27 Nov 2016</div>
+                                    <div class="ticket-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                                    <a href="#" class="buy-btn">Buy Tickets</a>
+                                </div>
+                            </div>
+                            <div class="ticket-available">
+                                <img src="./assets/img/newyork.jpg" alt="" class="ticket-img">
+                                <div class="ticket-info">
+                                    <div class="ticket-city">New York</div>
+                                    <div class="ticket-time">Fri 27 Nov 2016</div>
+                                    <div class="ticket-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                                    <a href="#" class="buy-btn">Buy Tickets</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="content-section">
@@ -73,6 +118,46 @@
 
         <div class="footer">
 
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-container">
+
+            <div class="modal-close-btn"><i class="fa-solid fa-xmark"></i></div>
+
+            <header class="modal-header">
+                <i class="fa-solid fa-suitcase"></i>
+                Tickets                
+            </header>
+
+            <div class="modal-body">
+                <label for="" class="modal-label">
+                    <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+                    Tickets, $15 per person
+                </label>
+                <input type="text" class="modal-input" placeholder="How many?">
+                <label for="" class="modal-label">
+                    <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+                    Send to
+                </label>
+                <input type="text" class="modal-input" placeholder="Enter email">
+
+                <div class="modal-pay-btn">
+                    PAY
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+                
+                <div class="modal-footer-close">
+                    Close
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+
+                <div class="modal-help">
+                    Need <a href="#" class="help-link">help?</a>
+                </div>
+                
+            </div>
         </div>
     </div>
 </body>
