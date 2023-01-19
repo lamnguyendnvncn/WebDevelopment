@@ -377,6 +377,79 @@ li:hover > .sub-more {
     font-weight: bolder;
 }
 
+/* contact */
+
+.fa-location-dot, .fa-phone, .fa-envelope{
+    width: 30px;
+}
+
+.contact-address, .contact-phone, .contact-mail {
+    line-height: 22px;
+}
+
+.contact-info {
+    width: 400px;
+}
+
+.contact-input, .contact-info {
+    display: inline-block;
+}
+
+.first-row-input input {
+    padding: 8px;
+}
+
+.first-row-input {
+    margin-bottom: 8px;
+}
+
+.second-row-input input {
+    padding: 8px;
+    width: 100%;
+}
+
+.send-info {
+    float: right;
+    margin: 15px 0;
+    padding: 8px 16px;
+    border: none;
+    background-color: black;
+    color: white;
+}
+
+.send-info:hover {
+    background-color: #ccc;
+    color: black;
+    cursor: pointer;
+}
+
+.map img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* footer */
+
+.footer {
+    padding: 64px 16px;
+}
+
+.footer-icons {
+    text-align: center;
+    font-size: 20px;
+    opacity: 0.6;
+}
+
+.author {
+    text-align: center;
+    margin: 20px 0 ;
+    opacity: 0.6;
+}
+
+.style-underline {
+    text-decoration: underline;
+}
+
 .fa-suitcase{
     margin-right: 16px;
 }
