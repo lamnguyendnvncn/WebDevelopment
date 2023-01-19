@@ -86,7 +86,7 @@
                                     <div class="ticket-city">New York</div>
                                     <div class="ticket-time">Fri 27 Nov 2016</div>
                                     <div class="ticket-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                    <a href="#" class="buy-btn">Buy Tickets</a>
+                                    <button class="buy-btn js-buy-ticket">Buy Tickets</button>
                                 </div>
                             </div>
                             <div class="ticket-available">
@@ -95,7 +95,7 @@
                                     <div class="ticket-city">New York</div>
                                     <div class="ticket-time">Fri 27 Nov 2016</div>
                                     <div class="ticket-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                    <a href="#" class="buy-btn">Buy Tickets</a>
+                                    <button class="buy-btn js-buy-ticket">Buy Tickets</button>
                                 </div>
                             </div>
                             <div class="ticket-available">
@@ -104,7 +104,7 @@
                                     <div class="ticket-city">New York</div>
                                     <div class="ticket-time">Fri 27 Nov 2016</div>
                                     <div class="ticket-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                    <a href="#" class="buy-btn">Buy Tickets</a>
+                                    <button class="buy-btn js-buy-ticket">Buy Tickets</button>
                                 </div>
                             </div>
                         </div>
@@ -120,10 +120,10 @@
 
         </div>
     </div>
-    <div class="modal">
-        <div class="modal-container">
+    <div class="modal js-modal">
+        <div class="modal-container js-modal-container">
 
-            <div class="modal-close-btn"><i class="fa-solid fa-xmark"></i></div>
+            <div class="modal-close-btn js-close-modal"><i class="fa-solid fa-xmark"></i></div>
 
             <header class="modal-header">
                 <i class="fa-solid fa-suitcase"></i>
@@ -148,7 +148,7 @@
                 </div>
 
                 
-                <div class="modal-footer-close">
+                <div class="modal-footer-close js-close-modal">
                     Close
                     <i class="fa-solid fa-xmark"></i>
                 </div>
@@ -160,5 +160,29 @@
             </div>
         </div>
     </div>
+
+    <script>
+        let buyBtns = document.querySelectorAll('.js-buy-ticket');
+        let modal = document.querySelector('.js-modal');
+        let closeBtns = document.querySelectorAll('.js-close-modal')
+        let modalContainer = document.querySelector('.js-modal-container')
+
+        function showModalTicket() {
+            modal.classList.add('open-modal')            
+        }
+        function hideModalTicket() {
+            modal.classList.remove('open-modal')    
+        }
+        for (let buyBtn of buyBtns) {
+            buyBtn.addEventListener('click',showModalTicket)
+        }
+        for (let closeBtn of closeBtns) {
+            closeBtn.addEventListener('click',hideModalTicket)
+        }
+        modal.addEventListener('click',hideModalTicket)
+        modalContainer.addEventListener('click',function(e){
+            e.stopPropagation();
+        })
+    </script>
 </body>
 </html>

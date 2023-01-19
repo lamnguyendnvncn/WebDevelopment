@@ -256,13 +256,17 @@ li:hover > .sub-more {
 }
 
 .ticket-info .buy-btn {
-    
-    text-decoration: none;
     color: white;
     background-color: black;
     padding: 8px 16px;
+    border: none;
 }
 
+.buy-btn:hover {
+    background-color: #ccc;
+    color: black;
+    cursor: pointer;
+}
 
 
 /* modal pop-up */
@@ -274,17 +278,23 @@ li:hover > .sub-more {
     bottom: 0;
     right: 0;
     background-color: rgba(0,0,0,0.3);
-    display: flex;
     justify-content: center;
+    display: none;
+}
+
+.modal.open-modal {
+    display: flex!important;
 }
 
 .modal-container {
     background-color: white;
     width: 900px;
+    max-width: calc(100% - 32px);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     margin: 0 auto;
+    animation: modalShow ease .5s;
 }
 
 .modal-close-btn {
@@ -375,4 +385,12 @@ li:hover > .sub-more {
     font-weight: bolder;
 }
 
-
+@keyframes modalShow {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
