@@ -1,0 +1,21 @@
+h2 {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .pc {
+        display: block;
+    }
+}
+
+@media (max-width: 1023px) and (min-width:740px) {
+    .tablet {
+        display: block;
+    }
+}
+
+@media (max-width:739px) {
+    .mobile {
+        display: block;
+    }
+}
