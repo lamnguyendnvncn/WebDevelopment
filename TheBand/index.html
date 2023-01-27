@@ -18,7 +18,7 @@
                 <li><a href="#band">Band</a></li>
                 <li><a href="#tour">Tour</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li>
+                <li class="more-menu">
                     <a class="more" href="#">More <span class="nav-arrow-down ti-angle-down"></span></a>
                     <ul class="sub-more">
                         <li><a href="#">Merchandise</a></li>
@@ -223,16 +223,33 @@
     <script>
         let header = document.querySelector(".header")
         let menuBar = document.querySelector(".menu-bars")
+        let subMoreMenu = document.querySelector('.sub-more')
+        function checkHeader() {
+            if (!header.classList.contains('header-auto-height')) {
+                header.classList.add('overflow-hidden')
+            }
+            else {
+                header.classList.remove('overflow-hidden')
+            }
+        }
+        checkHeader();
         menuBar.addEventListener('click',function(){
             header.classList.toggle('header-auto-height')
+            checkHeader()
         })
         let navMenu = document.querySelectorAll(".nav li a")
         for (let nav of navMenu) {
             let isMoreMenu = nav.nextElementSibling && nav.nextElementSibling.classList.contains('sub-more');
             
-            nav.addEventListener('click',function(){
-                if (!isMoreMenu){
+            nav.addEventListener('click',function(e){
+                if (isMoreMenu){
+                    e.preventDefault();
+                    
+                    checkHeader();
+                }
+                else {
                     header.classList.remove('header-auto-height') ;
+                    checkHeader()
                 }
             })
         }

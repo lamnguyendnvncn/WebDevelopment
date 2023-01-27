@@ -47,7 +47,6 @@ html {
     left: 0;
     right: 0;
     z-index: 1;
-    overflow: hidden;
 }
 
 .nav {
@@ -514,6 +513,9 @@ li:hover > .sub-more {
 
 /* Mobile viewport */
 @media (max-width: 740px) {
+    .overflow-hidden {
+        overflow: hidden;
+    }
     .nav {
         display: block;
     }
@@ -542,9 +544,24 @@ li:hover > .sub-more {
     .nav li:first-child {
         display: inline-block;
     }
-    .nav li:has()
+    .more-menu {
+        position: relative;
+    }
     .sub-more {
+        width: 100%;
         position: absolute;
+        top: 46px;
+        background-color: #333;
+    }
+    .sub-more li {
+        width: 100%;
+    }
+    .sub-more li a {
+        width: 100%;
+        color: white;
+        padding: 8px 36px;
+        border-bottom: solid 1px rgba(0,0,0,0.5)
 
     }
+    
 }
