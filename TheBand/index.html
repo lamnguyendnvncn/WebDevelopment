@@ -236,6 +236,7 @@
         resizeHeader();
         menuBar.addEventListener('click',function(){
             header.classList.toggle('header-auto-height')
+            subMoreMenu.style.display='none'
             resizeHeader()
         })
         let navMenu = document.querySelectorAll(".nav li a")
