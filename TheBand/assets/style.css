@@ -515,6 +515,7 @@ li:hover > .sub-more {
 @media (max-width: 740px) {
     .about-section {
         font-size: 18px!important;
+        padding: 0 16px;
     }
     .slider .slider-content {
         display: none;
@@ -594,11 +595,23 @@ li:hover > .sub-more {
     .ticket-month {
         padding: 0 16px;
     }
+    .buy-btn {
+        width: 100%;
+        padding: 16px!important;
+    }
     /* Contact form */
     .mobile-contact {
         width: 100%;
     }
     .contact-input {
         margin-top: 8px;
+    }
+    .input-name {
+        margin-bottom: 8px;
+    }
+    .send-info {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 16px 0px;
     }
 }
