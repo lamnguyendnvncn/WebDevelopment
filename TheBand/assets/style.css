@@ -513,6 +513,12 @@ li:hover > .sub-more {
 
 /* Mobile viewport */
 @media (max-width: 740px) {
+    .about-section {
+        font-size: 18px!important;
+    }
+    .slider .slider-content {
+        display: none;
+    }
     .overflow-hidden {
         overflow: hidden;
     }
@@ -563,5 +569,36 @@ li:hover > .sub-more {
         border-bottom: solid 1px rgba(0,0,0,0.5)
 
     }
-    
+    /* image band member */
+    .member-mobile {
+        width: 100%!important;
+    }
+    .member-mobile .member-name {
+        font-size: 20px;
+        margin-top: 30px;
+    }
+    .member-mobile .member-img {
+        width: 60%;
+    }
+    .ticket-mobile {
+        width: 100%;
+        margin: auto;
+        padding: 32px 16px 0px 16px;
+    }
+    .row {
+        margin: 0;
+    }
+    .no-float {
+        float: none!important;
+    }
+    .ticket-month {
+        padding: 0 16px;
+    }
+    /* Contact form */
+    .mobile-contact {
+        width: 100%;
+    }
+    .contact-input {
+        margin-top: 8px;
+    }
 }
