@@ -232,20 +232,394 @@ var date = new Date(); //without ne w keyword, date will be just a string of cur
 // If else
 
 // Switch
-var date=6;
-switch(date) {
-    case 2:
-        console.log('Thu 2')
-        break
-    case 3:
-        console.log('Thu 3')
-        break
-    case 4:
-        console.log('Thu 4')
-        break
-    case 5:
-        console.log('Thu 5')
-        break
-    default:
-        console.log('ngay')
+// var date=6;
+// switch(date) {
+//     case 2:
+//         console.log('Thu 2')
+//         break
+//     case 3:
+//         console.log('Thu 3')
+//         break
+//     case 4:
+//         console.log('Thu 4')
+//         break
+//     case 5:
+//         console.log('Thu 5')
+//         break
+//     default:
+//         console.log('ngay')
+// }
+
+
+// Ternary operator
+var cost = {
+    name: "Javascript",
+    price: 0
 }
+
+// if (cost.price>0) {
+//     console.log(`${cost.name}: ${cost.price} coins`)
+// }
+// else {
+//     console.log('Free!')
+// }
+
+var message =cost.price>0 ? `${cost.name}: ${cost.price} coins` : 'Free!'
+// console.log(message)
+
+
+// Loop
+// for loop
+// for (var i=1;i<=1000;i++) {
+//     console.log(i)
+// }
+
+// for in: get key of object
+var myInfo={
+    name: 'lam',
+    age: 18,
+    address: 'vn'
+}
+// for (var i in myInfo) {
+//     console.log(i)
+// }
+
+// for of: get value of object (if object is dictionary access through object.keys() or object.values())
+// for (var key of Object.keys(myInfo)) {
+//     console.log(myInfo[key])
+// }
+// for (var value of Object.values(myInfo)) {
+//     console.log(value)
+// }
+
+// while loop
+var i=1;
+while(i<=1000) {
+    // console.log(i);
+    i++;
+}
+
+// do while
+var i=0;
+do {
+    // console.log(i)
+    i++
+} while (i<0);
+
+
+// break and continue
+for (var i=0;i<10;i++) {
+    if (i>5) break;
+    // console.log(i)
+}
+
+for (var i=0;i<10;i++) {
+    if (i%2!==0) continue;
+    // console.log(i)
+}
+
+// Nested loop
+var myArray=[
+    [1,2],
+    [3,4],
+    [5,6]
+]
+
+for (var elems of myArray){
+    for (var elem of elems) {
+        // console.log(elem)
+    }
+}
+
+for (var i=0;i<100;i+=5) {
+    // console.log(i)
+}
+
+var a=[1,2,3,4,1,1,2,3]
+var b = [...(new Set(a))]// ... will decompose elements in set, and [] will put those decomposed elements in array
+// console.log(b)
+
+// recursion
+function fibonacci(i) {
+    if (i===0||i===1) {
+        return 1;
+    }
+    else {
+        return fibonacci(i-1)+fibonacci(i-2);
+    }
+}
+function factorial(n) {
+    if (n===0||n===1) {
+        return 1;
+    }
+    else {
+        return n*factorial(n-1);
+    }
+}
+function countDown(n) {
+    if (n===0) {
+        return;
+    }
+    console.log(n);
+    countDown(--n);
+}
+function loop(start,end,cb) {
+    if (start>end) {
+        return;
+    }
+    cb(start);
+    return loop(start+1,end,cb);
+}
+var array = ['1','2','3','4','5'];
+loop(0,array.length-1,function(index){
+    // console.log('index: ',index)
+})
+
+
+// Array Learning
+var courses = [
+    {
+        id: 1,
+        course: 'JS',
+        coin: 250
+    },
+    {
+        id: 2,
+        course: 'PHP',
+        coin: 350
+    },
+    {
+        id: 3,
+        course: 'C++',
+        coin: 2150
+    },
+    {
+        id: 4,
+        course: 'C',
+        coin: 0
+    },
+    {
+        id: 5,
+        course: 'C++',
+        coin: 150
+    }
+]
+
+courses.forEach(function(course,index){ //iterate through all elements (works like for of)
+    // console.log(index, course.course)
+})
+
+var isCost = courses.every(function(course){ //check to see if all the elements satisfy a condition
+    return course.coin>0
+})
+// console.log(isCost)
+
+var freeExist = courses.some(function(course){ // check to see if there's at least 1 element satisfy a condition
+    // console.log(course.id)
+    return course.coin === 0
+})
+// console.log(freeExist)
+
+var findElem = courses.find(function(course) { // return first element satisfied the condition, if there's no satisifed, return undfined
+    return course.course==='C'
+})
+// console.log(findElem)
+
+var filterElem = courses.filter(function(course) { //return all elements satsified the condition
+    return course.course==='C++'
+})
+// console.log(filterElem)
+
+
+// Map method 
+var newCourses = courses.map(function(course, index) {
+    return {
+        id: course.id,
+        course: `Course: ${course.course}`,
+        coin: course.coin,
+        info: 'Beginner'
+    }
+})
+var courseNames = courses.map(function(course) {
+    return `<h2>${course.course}</h2>`
+})
+
+
+// Map reduce
+
+var totalCoin = courses.reduce(function(total,course,currentIndex){
+    return total+course.coin
+},0)
+// console.log(totalCoin)
+// if the return value we need is the same with the elements array, we can remove initial value
+numbers = [12,23,44,3443]
+var sum = numbers.reduce(function(total,num){
+    return total+num
+})
+// console.log(sum)
+var depthArray = [1,2,[3,4],5,6,[7,8,9]]
+var flattenArray = depthArray.reduce(function(flatten,a){
+    return flatten.concat(a)
+},[])
+// console.log(flattenArray)
+
+
+var topics = [
+    {
+        topic: "Front-end",
+        course: [
+            {
+                id: 1,
+                title: "HTML"
+            },
+            {
+                id:2,
+                title: "CSS"
+            }
+        ]
+    },
+    {
+        topic: "Back-end",
+        course: [
+            {
+                id:1,
+                title: "PHP"
+            },
+            {
+                id: 2,
+                title: "Node.js"
+            }
+        ]
+    }
+]
+
+var courses = topics.reduce(function(allCourses,topic){
+    var result = topic.course.reduce(function(course,c){
+        return course.concat(c.title)
+    },[])
+    return allCourses.concat(result)
+},[])
+// console.log(courses)
+
+var courses = [
+    {
+        id: 1,
+        course: 'JS',
+        coin: 250
+    },
+    {
+        id: 2,
+        course: 'PHP',
+        coin: 350
+    },
+    {
+        id: 3,
+        course: 'C++',
+        coin: 2150
+    },
+    {
+        id: 4,
+        course: 'C',
+        coin: 0
+    },
+    {
+        id: 5,
+        course: 'C++',
+        coin: 150
+    }
+]
+
+var numbers = [1,2,3,4,5]
+var sum = numbers.reduce(function(total,num){
+    return total+num
+})
+
+Array.prototype.customReduce = function(callback,initValue) {
+    if (initValue===undefined) {
+        initValue = this[0]
+        for (var i =1;i<this.length;i++) {
+            initValue = callback(initValue, this[i], i, this)
+        }
+    }
+    else {
+        for (var i =0;i<this.length;i++) {
+            initValue = callback(initValue,this[i],i,this)
+        }
+    }
+    return initValue
+}
+
+var sum = numbers.customReduce(function(total,num){
+    return total+num
+})
+// console.log(sum)
+
+var allCourses = courses.customReduce(function(all,course){
+    return all.concat(course.course)
+},[])
+// console.log(allCourses)
+
+var newCourses = courses.map(function(course){
+    return course.coin
+})
+
+// console.log(newCourses)
+
+Array.prototype.customMap = function(callback) {
+    var mapReturn = []
+    for (var i =0;i<this.length;i++) {
+        mapReturn.push(callback(this[i]))
+    }
+    return mapReturn
+}
+
+var newCourses = courses.customMap(function(course){
+    return course.course
+})
+// console.log(newCourses)
+
+
+// exercise
+var arr=[
+    ['name','lam'],
+    ['age',18]
+]
+
+var result = arr.reduce(function(obj,prop){
+    obj[prop[0]]=prop[1]
+    return obj
+},{})
+
+
+// String array includes
+var title = "responsive abc"
+// console.log(title.includes('es',2))
+
+
+function myFunction2(param,msg) {
+    param(msg)
+}
+
+function callBack(msg) {
+    console.log(msg)
+}
+
+// myFunction2(callBack,"Hello world!")
+
+
+var courses = [1,2,3,4,5]
+Array.prototype.map2 = function(callback) {
+    var result = []
+    for (var i =0;i<this.length;i++) {
+        result.push(callback(this[i]))
+    }
+    return result
+}
+var htmls = courses.map2(function(course){
+    return `<h2>${course}</h2>`
+})
+
+
+
+console.log(htmls)
+
