@@ -189,6 +189,9 @@ function User(firstName, lastName, avatar) {
     this.getName = function() {
         return `${firstName} ${lastName}`
     }
+    this.getPlace = function() {
+        return this.place
+    }
 }
 
 var teacher = new User('Lam','Nguyen','cat')
@@ -202,6 +205,47 @@ student.comment = 'Study at home'
 // console.log(student)
 // console.log(teacher.getName())
 
+
 // Object Prototype
+// we use object prototype to add new properties or methods to the object constructor
+User.prototype.place = 'home'
+// console.log(teacher.getPlace())
 
 
+// Date Object
+var date = new Date(); //without ne w keyword, date will be just a string of current date and time
+
+// console.log(`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`)
+
+
+// Math object
+// console.log(Math.PI)
+// console.log(Math.round(12.2))
+// console.log(Math.abs(-22))
+// console.log(Math.ceil(13.2))
+// console.log(Math.floor(13.9))
+// console.log(Math.random())
+// console.log(Math.min(-12,22,33,-8,-16))
+// console.log(Math.max(-12,22,33,-8,-16))
+
+
+// If else
+
+// Switch
+var date=6;
+switch(date) {
+    case 2:
+        console.log('Thu 2')
+        break
+    case 3:
+        console.log('Thu 3')
+        break
+    case 4:
+        console.log('Thu 4')
+        break
+    case 5:
+        console.log('Thu 5')
+        break
+    default:
+        console.log('ngay')
+}
