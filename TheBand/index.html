@@ -18,7 +18,7 @@
                 <li><a href="#band">Band</a></li>
                 <li><a href="#tour">Tour</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li>
+                <li class="more-menu">
                     <a class="more" href="#">More <span class="nav-arrow-down ti-angle-down"></span></a>
                     <ul class="sub-more">
                         <li><a href="#">Merchandise</a></li>
@@ -49,15 +49,15 @@
                     <p class="section-sub-heading"><em>We love music</em></p>
                     <p class="about-section">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit obcaecati impedit sunt, similique reprehenderit neque repellat eius cum iusto at quo, ipsam quas maiores, nam debitis soluta explicabo? Numquam dicta ab accusamus, doloremque ut harum amet recusandae ea necessitatibus, magnam a optio quo doloribus velit ex ipsa, aliquam itaque? Sed iure ratione aperiam recusandae necessitatibus commodi voluptatibus tempore, repudiandae eligendi. Necessitatibus omnis perspiciatis tempora officiis excepturi ad quisquam modi porro suscipit eligendi, maxime id corporis doloribus enim, facilis beatae! Omnis, provident illo possimus cum itaque aliquam sint! Delectus voluptates necessitatibus id voluptate nobis nulla exercitationem, provident, unde quis sint quisquam reprehenderit impedit, fugiat nesciunt odio corrupti deleniti veniam dicta quod? Aspernatur exercitationem maxime numquam, earum optio dolor sint, iste excepturi delectus mollitia, rerum eos minus vel in dolores quis pariatur. Reprehenderit modi, deleniti recusandae molestias vero sed. Ab aut officia, odit veritatis doloremque tenetur velit, adipisci illo fugit sit illum asperiores iste dolor delectus a nesciunt, ex ea saepe atque reprehenderit esse maiores. Enim molestias perferendis deserunt fugit officiis aperiam quis assumenda sint, facilis beatae. Placeat laudantium explicabo nobis, modi dolor ab aliquid! Libero corrupti, quidem quis ad, esse natus cupiditate odio corporis iure adipisci ipsum ipsa magnam quisquam quibusdam.</p>
                     <div class="member row">
-                        <div class="member-single col col-3">
+                        <div class="member-mobile col col-3">
                             <p class="member-name">Name</p>
                             <img src="./assets/img/bandmember.jpg" alt="" class="member-img">
                         </div>
-                        <div class="member-single col col-3">
+                        <div class="member-mobile col col-3">
                             <p class="member-name">Name</p>
                             <img src="./assets/img/bandmember.jpg" alt="" class="member-img">
                         </div>
-                        <div class="member-single col col-3">
+                        <div class="member-mobile col col-3">
                             <p class="member-name">Name</p>
                             <img src="./assets/img/bandmember.jpg" alt="" class="member-img">
                         </div>
@@ -84,7 +84,7 @@
                             </li>
                         </ul>
                         <div class="tickets row">
-                            <div class="col-3 col">
+                            <div class="ticket-mobile col-3 col no-float">
                                 <img src="./assets/img/newyork.jpg" alt="" class="ticket-img">
                                 <div class="ticket-info">
                                     <div class="ticket-city">New York</div>
@@ -93,7 +93,7 @@
                                     <button class="buy-btn js-buy-ticket">Buy Tickets</button>
                                 </div>
                             </div>
-                            <div class="col-3 col">
+                            <div class="ticket-mobile col-3 col no-float">
                                 <img src="./assets/img/newyork.jpg" alt="" class="ticket-img">
                                 <div class="ticket-info">
                                     <div class="ticket-city">New York</div>
@@ -102,7 +102,7 @@
                                     <button class="buy-btn js-buy-ticket">Buy Tickets</button>
                                 </div>
                             </div>
-                            <div class="col-3 col">
+                            <div class="ticket-mobile col-3 col no-float">
                                 <img src="./assets/img/newyork.jpg" alt="" class="ticket-img">
                                 <div class="ticket-info">
                                     <div class="ticket-city">New York</div>
@@ -120,24 +120,25 @@
                     <div class="section-heading">CONTACT</div>
                     <div class="section-sub-heading"><em>Fan? Drop a note!</em></div>
                     <div class="contact-body row">
-                        <div class="contact-info col col-2">
+                        <div class="contact-info col col-2 mobile-contact">
                             <div class="contact-address">
                                 <i class="fa-solid fa-location-dot"></i>
                                 Chicago, US
                             </div>
                             <div class="contact-phone">
                                 <i class="fa-solid fa-phone"></i>
-                                Phone: +813 123123
+                                Phone: <a href="tel:+813 123123" style="color: black; opacity: 0.7;">+813 123123</a>
                             </div>
                             <div class="contact-mail">
                                 <i class="fa-solid fa-envelope"></i>
-                                Email: mail@mail.com
+                                Email: 
+                                <a href="mailto:" style="color: black; opacity: 0.7;">mail@mail.com</a>
                             </div>
                         </div>
-                        <form action="" class="contact-input col col-2">
+                        <form action="" class="contact-input col col-2 mobile-contact">
                             <div class="first-row-input row">
-                                <div class="input-name col col-2"><input type="text" name="" id=""  placeholder="Name"></div>
-                                <div class="input-email col col-2"><input type="email" name="" id="" placeholder="Email" ></div>
+                                <div class="input-name col col-2 mobile-contact" mobile-contact><input type="text" name="" id=""  placeholder="Name"></div>
+                                <div class="input-email col col-2 mobile-contact" mobile-contact><input type="email" name="" id="" placeholder="Email" ></div>
                             </div>
                             <div class="second-row-input row">
                                 <div class="input-message col col-full"><input type="text" name="" id="" placeholder="Message"></div>
@@ -223,16 +224,40 @@
     <script>
         let header = document.querySelector(".header")
         let menuBar = document.querySelector(".menu-bars")
+        let subMoreMenu = document.querySelector('.sub-more')
+        function resizeHeader() {
+            if (!header.classList.contains('header-auto-height')) {
+                header.classList.add('overflow-hidden')
+            }
+            else {
+                header.classList.remove('overflow-hidden')
+            }
+            
+        }
+        resizeHeader();
         menuBar.addEventListener('click',function(){
             header.classList.toggle('header-auto-height')
+            subMoreMenu.style.display='none'
+            resizeHeader()
         })
         let navMenu = document.querySelectorAll(".nav li a")
         for (let nav of navMenu) {
             let isMoreMenu = nav.nextElementSibling && nav.nextElementSibling.classList.contains('sub-more');
             
-            nav.addEventListener('click',function(){
-                if (!isMoreMenu){
+            nav.addEventListener('click',function(e){
+                if (isMoreMenu){
+                    e.preventDefault();
+                    if (subMoreMenu.style.display==='none'){
+                        subMoreMenu.style.display='block'
+                    }
+                    else {
+                        subMoreMenu.style.display='none'
+                    }
+                    resizeHeader();
+                }
+                else {
                     header.classList.remove('header-auto-height') ;
+                    resizeHeader()
                 }
             })
         }
