@@ -101,6 +101,8 @@ html {
 
 li:hover > .sub-more {
     display: block;
+    /* animation: submoreShow ease 0.5s; */
+    
 }
 
 /* search btn */
@@ -494,6 +496,17 @@ li:hover > .sub-more {
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes submoreShow {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        top: 46px;
     }
 }
 
