@@ -509,6 +509,10 @@ li:hover > .sub-more {
         padding: 64px 16px;
         /* Padding left and right 16px to cover the margin left and right -8px from row and column */
     }
+    .fa-brands {
+        font-size: 36px;
+        padding: 0 8px;
+    }
 }
 
 /* Mobile viewport */
@@ -613,5 +617,14 @@ li:hover > .sub-more {
         width: 100%;
         padding: 12px 20px;
         margin: 16px 0px;
+    }
+    .contact-address, .contact-phone, .contact-mail {
+        font-size: 16px;
+        padding: 8px 0;
+    }
+    /* icon */
+    .fa-brands {
+        font-size: 36px;
+        margin: 0 8px;
     }
 }
