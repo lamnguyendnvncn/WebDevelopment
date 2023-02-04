@@ -445,181 +445,328 @@ var courseNames = courses.map(function(course) {
 })
 
 
-// Map reduce
+// // Map reduce
 
-var totalCoin = courses.reduce(function(total,course,currentIndex){
-    return total+course.coin
-},0)
-// console.log(totalCoin)
-// if the return value we need is the same with the elements array, we can remove initial value
-numbers = [12,23,44,3443]
-var sum = numbers.reduce(function(total,num){
-    return total+num
-})
-// console.log(sum)
-var depthArray = [1,2,[3,4],5,6,[7,8,9]]
-var flattenArray = depthArray.reduce(function(flatten,a){
-    return flatten.concat(a)
-},[])
-// console.log(flattenArray)
+// var totalCoin = courses.reduce(function(total,course,currentIndex){
+//     return total+course.coin
+// },0)
+// // console.log(totalCoin)
+// // if the return value we need is the same with the elements array, we can remove initial value
+// numbers = [12,23,44,3443]
+// var sum = numbers.reduce(function(total,num){
+//     return total+num
+// })
+// // console.log(sum)
+// var depthArray = [1,2,[3,4],5,6,[7,8,9]]
+// var flattenArray = depthArray.reduce(function(flatten,a){
+//     return flatten.concat(a)
+// },[])
+// // console.log(flattenArray)
 
 
-var topics = [
-    {
-        topic: "Front-end",
-        course: [
-            {
-                id: 1,
-                title: "HTML"
-            },
-            {
-                id:2,
-                title: "CSS"
-            }
-        ]
-    },
-    {
-        topic: "Back-end",
-        course: [
-            {
-                id:1,
-                title: "PHP"
-            },
-            {
-                id: 2,
-                title: "Node.js"
-            }
-        ]
-    }
-]
+// // practice callback function
+// var topics = [
+//     {
+//         topic: "Front-end",
+//         course: [
+//             {
+//                 id: 1,
+//                 title: "HTML"
+//             },
+//             {
+//                 id:2,
+//                 title: "CSS"
+//             }
+//         ]
+//     },
+//     {
+//         topic: "Back-end",
+//         course: [
+//             {
+//                 id:1,
+//                 title: "PHP"
+//             },
+//             {
+//                 id: 2,
+//                 title: "Node.js"
+//             }
+//         ]
+//     }
+// ]
 
-var courses = topics.reduce(function(allCourses,topic){
-    var result = topic.course.reduce(function(course,c){
-        return course.concat(c.title)
-    },[])
-    return allCourses.concat(result)
-},[])
-// console.log(courses)
+// var courses = topics.reduce(function(allCourses,topic){
+//     var result = topic.course.reduce(function(course,c){
+//         return course.concat(c.title)
+//     },[])
+//     return allCourses.concat(result)
+// },[])
+// // console.log(courses)
 
+// var courses = [
+//     {
+//         id: 1,
+//         course: 'JS',
+//         coin: 250
+//     },
+//     {
+//         id: 2,
+//         course: 'PHP',
+//         coin: 350
+//     },
+//     {
+//         id: 3,
+//         course: 'C++',
+//         coin: 2150
+//     },
+//     {
+//         id: 4,
+//         course: 'C',
+//         coin: 0
+//     },
+//     {
+//         id: 5,
+//         course: 'C++',
+//         coin: 150
+//     }
+// ]
+
+// var numbers = [1,2,3,4,5]
+// var sum = numbers.reduce(function(total,num){
+//     return total+num
+// })
+
+// Array.prototype.customReduce = function(callback,initValue) {
+//     if (initValue===undefined) {
+//         initValue = this[0]
+//         for (var i =1;i<this.length;i++) {
+//             initValue = callback(initValue, this[i], i, this)
+//         }
+//     }
+//     else {
+//         for (var i =0;i<this.length;i++) {
+//             initValue = callback(initValue,this[i],i,this)
+//         }
+//     }
+//     return initValue
+// }
+
+// var sum = numbers.customReduce(function(total,num){
+//     return total+num
+// })
+// // console.log(sum)
+
+// var allCourses = courses.customReduce(function(all,course){
+//     return all.concat(course.course)
+// },[])
+// // console.log(allCourses)
+
+// var newCourses = courses.map(function(course){
+//     return course.coin
+// })
+
+// // console.log(newCourses)
+
+// Array.prototype.customMap = function(callback) {
+//     var mapReturn = []
+//     for (var i =0;i<this.length;i++) {
+//         mapReturn.push(callback(this[i]))
+//     }
+//     return mapReturn
+// }
+
+// var newCourses = courses.customMap(function(course){
+//     return course.course
+// })
+// // console.log(newCourses)
+
+
+// // exercise
+// var arr=[
+//     ['name','lam'],
+//     ['age',18]
+// ]
+
+// var result = arr.reduce(function(obj,prop){
+//     obj[prop[0]]=prop[1]
+//     return obj
+// },{})
+
+
+// // String array includes
+// var title = "responsive abc"
+// // console.log(title.includes('es',2))
+
+
+// function myFunction2(param,msg) {
+//     param(msg)
+// }
+
+// function callBack(msg) {
+//     console.log(msg)
+// }
+
+// // myFunction2(callBack,"Hello world!")
+
+
+// var courses = [
+//     'JS',
+//     'PHP',
+//     'Ruby'
+// ]
+// var allCourses = courses.map(function(course){
+//     return `<h2>${course}</h2>`
+// })
+// // console.log(allCourses)
+// Array.prototype.myMap = function(callback){
+//     result = []
+//     for (var i =0;i<this.length;i++) {
+//         result.push(callback(this[i]))
+//     }
+//     return result;
+// }
+
+// var allCourses2 = courses.myMap(function(course){
+//     return `<h2>${course}</h2>`
+// })
+
+// // console.log(allCourses2)
+
+// Array.prototype.myReduce = function(callback,initValue){
+//     if (initValue===undefined) {
+//         initValue = this[0]
+//         for (var i =1;i<this.length;i++) {
+//             initValue = callback(initValue,this[i])
+//         }
+//     }
+//     else {
+//         for (var i =0;i<this.length;i++) {
+//             initValue = callback(initValue,this[i])
+//         }
+//     }
+//     return initValue
+// }
+
+// var allCoursesR = courses.myReduce(function(allStr,course){
+//     return `${allStr} ${course}`
+// })
+
+// // console.log(allCoursesR)
+
+
+// // practice other method
+// // empty elements in array
+// var courses = [
+//     'JS',
+//     'PHP',
+//     'Ruby'
+// ]
+// courses.length = 10
+
+// // for (var i =0;i<courses.length;i++) {
+// //     console.log(courses[i])
+// // }
+// // still show empty elements
+
+// // use for in will eliminate showing empty elements
+// for (var ind in courses) {
+//     // console.log(courses[ind])
+// }
+
+
+// // Replicate forEach function
+
+// // for each does not iterate through empty elements --> use for in loop
+// Array.prototype.myForEach = function(cb) {
+//     for (var index in this) {
+//         if (this.hasOwnProperty(index)){ // without this condition, the console will also print the custom foreach function.
+//             cb(this[index],index,this)
+//         }
+//     }
+// }
+// courses.myForEach(function(course,index,array){
+//     console.log(course,index,array)
+// })
+
+
+// Custom filter function
 var courses = [
     {
-        id: 1,
-        course: 'JS',
-        coin: 250
+        name: 'JS',
+        coin: 680,
+        isFinish: true
     },
     {
-        id: 2,
-        course: 'PHP',
-        coin: 350
+        name: 'PHP',
+        coin: 520,
+        isFinish: true
     },
     {
-        id: 3,
-        course: 'C++',
-        coin: 2150
-    },
-    {
-        id: 4,
-        course: 'C',
-        coin: 0
-    },
-    {
-        id: 5,
-        course: 'C++',
-        coin: 150
+        name: 'Ruby',
+        coin: 340,
+        isFinish: true
     }
 ]
 
-var numbers = [1,2,3,4,5]
-var sum = numbers.reduce(function(total,num){
-    return total+num
-})
+// var list = courses.filter(function(course,index,courses){
+//     return course.coin>1000
+// })
+// console.log(list)
 
-Array.prototype.customReduce = function(callback,initValue) {
-    if (initValue===undefined) {
-        initValue = this[0]
-        for (var i =1;i<this.length;i++) {
-            initValue = callback(initValue, this[i], i, this)
+// Array.prototype.myFilter = function(cb) {
+//     var result = []
+//     for (var index in this) {
+//         if (this.hasOwnProperty(index)) {
+//             if (cb(this[index],index,this)) {
+//                 result.push(this[index])
+//             }
+//         }
+//     }
+//     return result
+// }
+
+// var myList = courses.myFilter(function(course,index,array){
+//     console.log(index,array)
+//     return course.coin>100
+// })
+// console.log(myList)
+
+
+// Some custom function
+// var oneCourse = courses.some(function(course){
+//     return course.isFinish
+// })
+
+
+// Array.prototype.mySome = function(cb) {
+//     for (var index in this) {
+//         if (this.hasOwnProperty(index)) {
+//             if (cb(this[index],index,this)) {
+//                 return true;
+//             }
+//         }
+//     }
+//     return false;
+// }
+
+// var myOneCourse = courses.mySome(function(course,index,array){
+
+//     return course.isFinish
+// })
+
+
+// Every custom function
+Array.prototype.myEvery = function(cb) {
+    for (var index in this) {
+        if (this.hasOwnProperty(index)) {
+            if (!cb(this[index],index,this)) {
+                return false;
+            }
         }
     }
-    else {
-        for (var i =0;i<this.length;i++) {
-            initValue = callback(initValue,this[i],i,this)
-        }
-    }
-    return initValue
+    return true;
 }
 
-var sum = numbers.customReduce(function(total,num){
-    return total+num
-})
-// console.log(sum)
-
-var allCourses = courses.customReduce(function(all,course){
-    return all.concat(course.course)
-},[])
-// console.log(allCourses)
-
-var newCourses = courses.map(function(course){
-    return course.coin
-})
-
-// console.log(newCourses)
-
-Array.prototype.customMap = function(callback) {
-    var mapReturn = []
-    for (var i =0;i<this.length;i++) {
-        mapReturn.push(callback(this[i]))
-    }
-    return mapReturn
-}
-
-var newCourses = courses.customMap(function(course){
-    return course.course
-})
-// console.log(newCourses)
-
-
-// exercise
-var arr=[
-    ['name','lam'],
-    ['age',18]
-]
-
-var result = arr.reduce(function(obj,prop){
-    obj[prop[0]]=prop[1]
-    return obj
-},{})
-
-
-// String array includes
-var title = "responsive abc"
-// console.log(title.includes('es',2))
-
-
-function myFunction2(param,msg) {
-    param(msg)
-}
-
-function callBack(msg) {
-    console.log(msg)
-}
-
-// myFunction2(callBack,"Hello world!")
-
-
-var courses = [1,2,3,4,5]
-Array.prototype.map2 = function(callback) {
-    var result = []
-    for (var i =0;i<this.length;i++) {
-        result.push(callback(this[i]))
-    }
-    return result
-}
-var htmls = courses.map2(function(course){
-    return `<h2>${course}</h2>`
-})
-
-
-
-console.log(htmls)
-
+console.log(courses.myEvery(function(course,index,array){
+    console.log(index)
+    return course.isFinish
+}))
