@@ -99,11 +99,11 @@ html {
     background-color: #ccc;
 }
 
-/* li:hover > .sub-more {
+li:hover > .sub-more {
     display: block;
-    /* animation: submoreShow ease 0.5s; 
+    /* animation: submoreShow ease 0.5s; */
     
-}*/
+}
 
 /* search btn */
 

@@ -247,11 +247,14 @@
             nav.addEventListener('click',function(e){
                 if (isMoreMenu){
                     e.preventDefault();
-                    if (subMoreMenu.style.display==='none'){
-                        subMoreMenu.style.display='block'
-                    }
-                    else {
-                        subMoreMenu.style.display='none'
+                    var html = document.querySelector('html');
+                    if (html.clientWidth<740) {
+                        if (subMoreMenu.style.display==='none'){
+                            subMoreMenu.style.display='block'
+                        }
+                        else {
+                            subMoreMenu.style.display='none'
+                        }
                     }
                     resizeHeader();
                 }
