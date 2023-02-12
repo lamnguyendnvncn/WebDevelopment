@@ -1,0 +1,12 @@
+.card {
+
+}
+
+.card--success .card__btn {
+    /* Green background */
+}
+
+.card--error .card__btn {
+    /* Red background */
+}
+
