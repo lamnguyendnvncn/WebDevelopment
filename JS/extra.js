@@ -33,41 +33,61 @@
 //     }, 1000);
 // }, 1000);
 
-var promise = new Promise(
-    // executor
-    function(resolve, reject) {
-        // logic
-        // success: run resolve()
-        // fail: run reject()
-        resolve();
-    }
-);
+// var promise = new Promise(
+//     // executor
+//     function(resolve, reject) {
+//         // logic
+//         // success: run resolve()
+//         // fail: run reject()
+//         resolve();
+//     }
+// );
 
-promise
-    .then(function() {
-            return new Promise(function(resolve){
-                setTimeout(() => {
-                    resolve([1,2,3]);
-                }, 3000);
-            })
-        }
-    )
-    .then(function(number) {
-        console.log(number);
-        return 2;
-    }
-    )
-    .then(function(number) {
-        console.log(number);
-    }
-    )
-    .catch(function() {
-            console.log('Failure!')
+// promise
+//     .then(function() {
+//             return new Promise(function(resolve){
+//                 setTimeout(() => {
+//                     resolve([1,2,3]);
+//                 }, 3000);
+//             })
+//         }
+//     )
+//     .then(function(number) {
+//         console.log(number);
+//         return 2;
+//     }
+//     )
+//     .then(function(number) {
+//         console.log(number);
+//     }
+//     )
+//     .catch(function() {
+//             console.log('Failure!')
 
-        }
-    )
-    .finally(function() {
-            console.log('Done!')
+//         }
+//     )
+//     .finally(function() {
+//             console.log('Done!')
 
-        }
-    )
+//         }
+//     )
+
+// var sleep = function(ms) {
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(resolve,ms);
+//     })
+// }
+
+// sleep(1000)
+//     .then(function(){
+//         console.log(1);
+//         return sleep(1000);
+//     })
+//     .then(function(){
+//         console.log(2);
+//         return sleep(1000);
+//     })
+//     .then(function(){
+//         console.log(3);
+//         return sleep(1000);
+//     })
