@@ -39,16 +39,27 @@ var promise = new Promise(
         // logic
         // success: run resolve()
         // fail: run reject()
-        resolve(123);
+        resolve();
     }
 );
 
 promise
-    .then(function(number) {
-            console.log('Successfully!')
-            console.log(number)
-
+    .then(function() {
+            return new Promise(function(resolve){
+                setTimeout(() => {
+                    resolve([1,2,3]);
+                }, 3000);
+            })
         }
+    )
+    .then(function(number) {
+        console.log(number);
+        return 2;
+    }
+    )
+    .then(function(number) {
+        console.log(number);
+    }
     )
     .catch(function() {
             console.log('Failure!')
