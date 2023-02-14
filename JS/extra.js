@@ -22,3 +22,41 @@
 // console.log(2);
 
 
+// Callback hell, Pyramid of doom
+// setTimeout(() => {
+//     console.log(1);
+//     setTimeout(() => {
+//         console.log(2)
+//         setTimeout(() => {
+//             console.log(3)
+//         }, 1000);
+//     }, 1000);
+// }, 1000);
+
+var promise = new Promise(
+    // executor
+    function(resolve, reject) {
+        // logic
+        // success: run resolve()
+        // fail: run reject()
+        resolve(123);
+    }
+);
+
+promise
+    .then(function(number) {
+            console.log('Successfully!')
+            console.log(number)
+
+        }
+    )
+    .catch(function() {
+            console.log('Failure!')
+
+        }
+    )
+    .finally(function() {
+            console.log('Done!')
+
+        }
+    )
