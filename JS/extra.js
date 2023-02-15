@@ -85,9 +85,80 @@
 //     })
 //     .then(function(){
 //         console.log(2);
-//         return sleep(1000);
+//         return new Promise((resolve,reject)=>{
+//             reject('Error');
+//         })
 //     })
 //     .then(function(){
 //         console.log(3);
 //         return sleep(1000);
 //     })
+//     .catch((err)=>{
+//         console.log(err)
+//     })
+
+// var promise = new Promise((resolve,reject)=>{
+//     reject('Success!')
+// })
+
+// promise
+//     .then((result)=>{
+//         console.log('result: '+result)
+//     })
+//     .catch((err)=>{
+//         console.log('error: '+err)
+//     })
+
+// If you want to return promise that always right (resolve) or always wrong(reject), use
+
+var promise = Promise.resolve('success!')
+
+promise
+    .then((data)=>{
+        console.log('success: '+ data);
+    })
+    .catch((err)=>{
+        console.log('error: '+err);
+    })
+
+
+// Promise all, run multiple promise at the same time if promises are not relate to each other
+var promise1 = new Promise((resolve)=>{
+    setTimeout(() => {
+        resolve([1])
+    }, 1000);
+})
+
+var promise2 = new Promise((resolve)=>{
+    setTimeout(() => {
+        resolve([2,3])
+    }, 2000);
+})
+
+Promise.all([promise1,promise2])
+    .then((result)=>{
+        var returnArray = [];
+        for (var i in result) {
+            returnArray = returnArray.concat(result[i])
+        }
+        console.log(returnArray)
+    })
+
+// If one promise have error, it will cancel everything => use for checking if all promise is correct
+var promise3 = new Promise((resolve,reject)=>{
+    setTimeout(() => {
+        reject('error');
+    }, 2000);
+})
+
+Promise.all([promise1,promise2,promise3])
+    .then((result)=>{
+        var returnArray = [];
+        for (var i in result) {
+            returnArray = returnArray.concat(result[i])
+        }
+        console.log(returnArray)
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
