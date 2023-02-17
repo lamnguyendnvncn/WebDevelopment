@@ -5,7 +5,6 @@ var postAPI = 'https://jsonplaceholder.typicode.com/posts'
 fetch(postAPI)
     .then(response => response.json()) // this will parse the received json
     .then(post => {
-        console.log(post);
         var htmls = post.map(p=>{
             return `<li>
                 <h3>${p.title}</h3>

@@ -1,0 +1,29 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "name": "HTML,CSS",
+      "description": "Các kiến thức cơ bản, nền móng của ngành IT"
+    },
+    {
+      "id": 2,
+      "name": "Javacript",
+      "description": "Khóa Javascript cơ bản"
+    },
+    {
+      "name": "Advanced Javascript",
+      "description": "JS Nâng cao",
+      "id": 3
+    }
+  ],
+  "coins": [
+    {
+      "id": 1,
+      "coin": "100"
+    },
+    {
+      "id": 2,
+      "coin": "1200"
+    }
+  ]
+}
