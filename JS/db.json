@@ -14,16 +14,6 @@
       "name": "Advanced Javascript",
       "description": "JS Nâng cao",
       "id": 3
-    },
-    {
-      "name": "C#",
-      "description": "Hoc C# Co ban",
-      "id": 4
-    },
-    {
-      "name": "c++",
-      "description": "cplusplus",
-      "id": 5
     }
   ],
   "coins": [

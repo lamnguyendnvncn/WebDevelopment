@@ -2,13 +2,12 @@
 // Postman: POST, GET, PUT/PATCH, DELETE
 
 var coursesAPI = 'http://localhost:3000/courses'
-var deleteBtns
 function renderCourse(courses) {
     var htmls = courses.map(course => {
-        return `<li>
+        return `<li class="course-${course.id}">
         <h4>${course.name}</h4>
         <p>${course.description}</p>
-        <button class="delete course-${course.id}">Delete</button>
+        <button onclick="deleteCourse(${course.id})">Delete</button>
         </li>`
     })
     var htmlScript = htmls.join('')
@@ -21,9 +20,6 @@ function getCourse(api) {
     fetch(api)
         .then(jsonReturn => jsonReturn.json())
         .then(courses => renderCourse(courses))
-        .then(documentNew => {
-            deleteBtns = documentNew.querySelectorAll('.delete')
-        })
 }
 getCourse(coursesAPI)
 
@@ -44,6 +40,21 @@ createCourse.addEventListener('click', (e) => {
         .then(response => response.json())
         .then(courses => renderCourse(courses))
 })
+
+function deleteCourse(courseId) {
+    var options = {
+        method: 'DELETE'
+    }
+    fetch(coursesAPI+"/"+courseId, options)
+        .then(function(){
+            var deleteElement = document.querySelector('.course-'+courseId)
+        if(deleteElement){
+            deleteElement.remove();
+        }
+        })
+    
+
+}
 
 
 
