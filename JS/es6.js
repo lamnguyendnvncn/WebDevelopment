@@ -77,5 +77,34 @@ import {loggerFunc,TYPE_LOG,TYPE_ERROR,TYPE_WARN} from "./module.js";
 import * as vars from "./module.js"
 // import without destructuring {} will need to be exported default
 // import with destructuring won't need destructuring
-loggerFunc(TYPE_ERROR);
-console.log(vars.loggerFunc)
+// loggerFunc(TYPE_ERROR);
+// console.log(vars.loggerFunc)
+
+// Optional chaining
+const adventurer = {
+    name: 'Alice',
+    cat: {
+      name: 'Dinah',
+      cat2: {
+        name: 'Dinah2',
+        cat3: {
+            name: 'Dinah3'
+          }
+      }
+    }
+  };
+
+const obj = {
+    // getName(value) {
+    //     console.log(value)
+    // }
+}
+
+// console.log(course.description.name) // this will return error since there's no description in course object
+// If we don't know if the key is exist or not, add ? infront of chaining.
+if (adventurer?.cat?.cat2?.cat3) {
+    console.log(adventurer.cat.cat2.cat3.name)
+}
+
+obj.getName?.(123); //use optional chaining
+obj.getName(123); //if function is not there -> error

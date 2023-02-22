@@ -1,4 +1,4 @@
-export {averageForStudent, averageForTest}
+export {averageForStudent, averageForTest};
 
 function averageForStudent(nameIndex,scores){
     let sum = 0;
