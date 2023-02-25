@@ -1,3 +1,4 @@
+
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
@@ -10,9 +11,14 @@ const playBtn = $('.btn-toggle-play')
 const nextBtn = $('.btn-next')
 const prevBtn = $('.btn-prev')
 const playProgress = $('#progress')
+const randomBtn = $('.btn-random')
 
 const app = {
     currentIndex: 0,
+    isRandom: randomBtn.classList.contains('active'),
+    allSongs: function() {
+
+    },
     songs: [
         {
           name: "Click Pow Get Down",
@@ -21,7 +27,7 @@ const app = {
           image: "https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg"
         },
         {
-          name: "Tu Phir Se Aana",
+          name: "Hạ Phỏm",
           singer: "Raftaar x Salim Merchant x Karma",
           path: "./asset/music/music2.mp3",
           image:
@@ -73,22 +79,40 @@ const app = {
     ],
     render: function() {
         // get songs from the array and render it
-        const htmls = this.songs.map(song => {
-            return `
-            <div class="song">
-                <div class="thumb" style="background-image: url('${song.image}')">
-                </div>
-                <div class="body">
-                    <h3 class="title">${song.name}</h3>
-                    <p class="author">${song.singer}</p>
-                </div>
-                <div class="option">
-                    <i class="fas fa-ellipsis-h"></i>
-                </div>
-            </div>
-            `
+        const htmls = this.songs.map((song,index) => {
+            if (index==this.currentIndex) {
+              return `
+              <div class="song active" data-index="${index}">
+                  <div class="thumb" style="background-image: url('${song.image}')">
+                  </div>
+                  <div class="body">
+                      <h3 class="title">${song.name}</h3>
+                      <p class="author">${song.singer}</p>
+                  </div>
+                  <div class="option">
+                      <i class="fas fa-ellipsis-h"></i>
+                  </div>
+              </div>
+              `
+            }
+            else {
+              return `
+              <div class="song" data-index="${index}">
+                  <div class="thumb" style="background-image: url('${song.image}')">
+                  </div>
+                  <div class="body">
+                      <h3 class="title">${song.name}</h3>
+                      <p class="author">${song.singer}</p>
+                  </div>
+                  <div class="option">
+                      <i class="fas fa-ellipsis-h"></i>
+                  </div>
+              </div>
+              `
+            }
         })
         playList.innerHTML = htmls.join('')
+
     },
     //create currentSong property that return the current song of the 
     defineProperties: function() {
@@ -136,26 +160,38 @@ const app = {
         }
         nextBtn.onclick = function(event) {
           const isPlaying = !audio.paused
-          if (app.currentIndex===app.songs.length-1) {
-            app.currentIndex=0;
-          }
-          else {
+          if (app.isRandom) {
+            let change = Math.floor(Math.random()*app.songs.length);
+            app.currentIndex+=(change!=0)?change:1;
+          }else {
             app.currentIndex++;
-          }          
+          }
+          if (app.currentIndex>=app.songs.length) {
+            app.currentIndex-=app.songs.length;
+          }
           app.loadCurrentSong();
+          app.render();
+          isSeeking=false;
+          playProgress.value = 0;
           if (isPlaying) {
             audio.play();
           }
         }
         prevBtn.onclick = function(event) {
           const isPlaying = !audio.paused
-          if (app.currentIndex===0) {
-            app.currentIndex=app.songs.length-1;
-          }
-          else {
+          if (app.isRandom) {
+            let change = Math.floor(Math.random()*app.songs.length);
+            app.currentIndex-=(change!=0)?change:1;
+          }else {
             app.currentIndex--;
           }
+          if (app.currentIndex<0) {
+            app.currentIndex+=app.songs.length;
+          }
+          
           app.loadCurrentSong();
+          app.render();
+          isSeeking = false;
           if (isPlaying) {
             audio.play();
           }
@@ -163,34 +199,59 @@ const app = {
         // progress bar running when playing video, seeking var is used for fixing error when seeking, the audio ontime udpate still change the progress bar
         let isSeeking = false;
         audio.ontimeupdate = function() {
-          console.log(isSeeking)
-          if (audio.duration && !isSeeking){
+          if (!isSeeking&&audio.duration){
             playProgress.value = Math.floor(audio.currentTime/audio.duration*100);
           }
         }
         // seeking audio
+        playProgress.onmouseover = function(e) {
+          isSeeking = true;
+        }
         playProgress.onchange = function(e) {
-          isSeeking=true;
+          isSeeking = true;
           audio.currentTime = e.target.value*audio.duration/100;
         }
-        document.addEventListener('mouseup',function(){
-          console.log(isSeeking)
-          isSeeking=false;
-        })
+        playProgress.onmouseleave = function(e) {
+          isSeeking = false;
+        }
+        // click on song to play
+        
+
     },
     loadCurrentSong: function() {
       // load the current song to the playlist and cd for rendering
       dashboardSongName.textContent = this.currentSong.name;
       cdImage.style.backgroundImage = `url('${this.currentSong.image}')`
       audio.src = this.currentSong.path
-      
     },
     start: function() {
       this.defineProperties();
       this.handleEvent();
       this.loadCurrentSong();
       this.render();
+
     }
 }
 
 app.start()
+
+
+
+
+// effect
+nextBtn.onmouseover = function(e) {
+  this.classList.add("active")
+}
+nextBtn.onmouseleave = function(e) {
+  this.classList.remove('active')
+}
+prevBtn.onmouseover = function(e) {
+  this.classList.add("active")
+}
+prevBtn.onmouseleave = function(e) {
+  this.classList.remove('active')
+}
+randomBtn.onclick = function(e) {
+  this.classList.toggle('active')
+  app.isRandom = this.classList.contains('active')
+}
