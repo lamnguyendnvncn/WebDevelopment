@@ -1,4 +1,3 @@
-
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
@@ -12,13 +11,13 @@ const nextBtn = $('.btn-next')
 const prevBtn = $('.btn-prev')
 const playProgress = $('#progress')
 const randomBtn = $('.btn-random')
+const cdWidth = cd.offsetWidth
+const repeatBtn = $('.btn-repeat')
 
 const app = {
     currentIndex: 0,
     isRandom: randomBtn.classList.contains('active'),
-    allSongs: function() {
-
-    },
+    isRepeat: repeatBtn.classList.contains('active'),
     songs: [
         {
           name: "Click Pow Get Down",
@@ -112,7 +111,7 @@ const app = {
             }
         })
         playList.innerHTML = htmls.join('')
-
+        app.chooseSong();
     },
     //create currentSong property that return the current song of the 
     defineProperties: function() {
@@ -123,7 +122,6 @@ const app = {
       })
     },
     handleEvent: function() {
-        const cdWidth = cd.offsetWidth
         // Handle rotate cd image
         const cdAnimation = cdImage.animate([
           {transform: 'rotate(360deg)'}
@@ -132,7 +130,13 @@ const app = {
           iterations: Infinity
         })
         cdAnimation.pause() 
-        
+        audio.onplay = function() {
+          cdAnimation.play();
+        }
+        audio.onpause = function() {
+          cdAnimation.pause();
+        }
+        audio.loop=app.isRepeat;
 
         // make the album pictures in playlist minimize when scrolling down
         document.onscroll = function(event) {
@@ -151,12 +155,6 @@ const app = {
           else {
             audio.pause();
           }
-          audio.onplay = function() {
-            cdAnimation.play();
-          }
-          audio.onpause = function() {
-            cdAnimation.pause();
-          }
         }
         nextBtn.onclick = function(event) {
           const isPlaying = !audio.paused
@@ -171,7 +169,6 @@ const app = {
           }
           app.loadCurrentSong();
           app.render();
-          isSeeking=false;
           playProgress.value = 0;
           if (isPlaying) {
             audio.play();
@@ -191,7 +188,6 @@ const app = {
           
           app.loadCurrentSong();
           app.render();
-          isSeeking = false;
           if (isPlaying) {
             audio.play();
           }
@@ -214,21 +210,45 @@ const app = {
         playProgress.onmouseleave = function(e) {
           isSeeking = false;
         }
-        // click on song to play
+        // when the audio ended, changing to the next song
+        audio.onended = function() {
+          if (!app.isRepeat) {
+            nextBtn.click();
+            audio.play();
+          }
+        }
         
 
-    },
+      },
     loadCurrentSong: function() {
       // load the current song to the playlist and cd for rendering
       dashboardSongName.textContent = this.currentSong.name;
       cdImage.style.backgroundImage = `url('${this.currentSong.image}')`
       audio.src = this.currentSong.path
     },
+    // click on a song will highlight and play that song
+    chooseSong: function() {
+      const songLists = $$('.song')
+      songLists.forEach((song,index)=>{
+        song.onclick = function() {
+          const isPlaying = !audio.paused
+          app.currentIndex = index;
+          app.loadCurrentSong();
+          app.render();
+          if (isPlaying) {
+            audio.play();
+          }
+          playProgress.value =0;
+          app.chooseSong();
+        }
+      })
+    },
     start: function() {
       this.defineProperties();
       this.handleEvent();
       this.loadCurrentSong();
       this.render();
+      this.chooseSong();
 
     }
 }
@@ -254,4 +274,9 @@ prevBtn.onmouseleave = function(e) {
 randomBtn.onclick = function(e) {
   this.classList.toggle('active')
   app.isRandom = this.classList.contains('active')
+}
+repeatBtn.onclick = function(e) {
+  this.classList.toggle('active')
+  app.isRepeat = this.classList.contains('active')
+  audio.loop = !audio.loop
 }
