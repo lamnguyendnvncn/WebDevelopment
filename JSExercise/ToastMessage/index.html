@@ -8,23 +8,41 @@
     <title>Toast Message</title>
 </head>
 <body>
-    <!-- Success -->
-    <div class="toast toast--success">
-        <div class="toast__icon">
-            <i class="fa-regular fa-circle-check"></i>
+    <div id="toast">
+        <!-- <div class="toast toast--success">
+            <div class="toast__icon">
+                <i class="fa-regular fa-circle-check"></i>
+            </div>
+            <div class="toast__body">
+                <h4 class="toast__title">
+                    Success
+                </h4>
+                <p class="toast__message">Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé</p>
+            </div>
+            <div class="toast__close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div> -->
+    </div>
+
+    <div class="button">
+        <div onclick="showSuccess()" class="btn btn--success">
+            Show success
         </div>
-        <div class="toast__body">
-            <h4 class="toast__title">
-                Success
-            </h4>
-            <p class="toast__message">Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé</p>
+        <div onclick="showError()" class="btn btn--error">
+            Show error
         </div>
-        <div class="toast__close">
-            <i class="fa-solid fa-xmark"></i>
+        <div onclick="showWarning()" class="btn btn--warning">
+            Show warning
+        </div>
+        <div onclick="showInfo()" class="btn btn--info">
+            Show info
         </div>
     </div>
+    <!-- Success -->
+    
     <!-- error -->
-    <div class="toast toast--error">
+    <!-- <div class="toast toast--error">
         <div class="toast__icon">
             <i class="fa-solid fa-circle-exclamation"></i>
         </div>
@@ -37,9 +55,9 @@
         <div class="toast__close">
             <i class="fa-solid fa-xmark"></i>
         </div>
-    </div>
+    </div> -->
     <!-- Info -->
-    <div class="toast toast--info">
+    <!-- <div class="toast toast--info">
         <div class="toast__icon">
             <i class="fa-regular fa-circle-question"></i>
         </div>
@@ -52,11 +70,11 @@
         <div class="toast__close">
             <i class="fa-solid fa-xmark"></i>
         </div>
-    </div>
+    </div> -->
     <!-- Warning -->
-    <div class="toast toast--warning">
+    <!-- <div class="toast toast--warning">
         <div class="toast__icon">
-            <i class="fa-regular fa-circle-check"></i>
+            <i class="fa-solid fa-triangle-exclamation"></i>
         </div>
         <div class="toast__body">
             <h4 class="toast__title">
@@ -67,7 +85,7 @@
         <div class="toast__close">
             <i class="fa-solid fa-xmark"></i>
         </div>
-    </div>
+    </div> -->
 
     
     
