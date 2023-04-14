@@ -4,6 +4,7 @@
 
 .card--success .card__btn {
     /* Green background */
+    background-color: green;
 }
 
 .card--error .card__btn {

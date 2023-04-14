@@ -1,1 +1,4 @@
 .DS_Store
+TypeScript_Angular/TS/node_modules
+TypeScript_Angular/TS/package.json
+TypeScript_Angular/TS/package-lock.json

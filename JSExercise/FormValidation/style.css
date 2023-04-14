@@ -115,7 +115,7 @@
     margin-right: 16px;
   }
 
-  .form-group.invalid input[type="radio"] {
+  .form-group.invalidinput[type="radio"] {
     border: 2px solid red;
   }
 
